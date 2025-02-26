@@ -65,6 +65,10 @@ function handleSearch() {
     alert("Please enter a city name.");
   }
 }
+function capitalizeFirstLetter(inputElement) {
+  inputElement.value = inputElement.value.charAt(0).toUpperCase() + inputElement.value.slice(1).toLowerCase();
+}
+
 
 weatherApp.searchBtn.addEventListener("click", handleSearch);
 
@@ -73,4 +77,8 @@ weatherApp.searchBox.addEventListener("keydown", function (event) {
     event.preventDefault();
     handleSearch();
   }
+});
+
+weatherApp.searchBox.addEventListener("input", () => {
+  capitalizeFirstLetter(weatherApp.searchBox);
 });
