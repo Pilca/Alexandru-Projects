@@ -1,293 +1,206 @@
-* {
+*{
     margin: 0;
     padding: 0;
-    font-family: "Poppins", sans-serif;
     box-sizing: border-box;
+    font-family: "poopins", sans-serif;
+    color: white;
+    font-weight: 600;
 }
 
-body {
-    background: #222;
-    font-family: Arial, sans-serif;
-    background-image: url("fishImages/wallpaper2.avif");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    text-align: center;
+body{
+    width: 100%;
+    height: 100vh;
+
 }
 
-/* Main container to align fishing and weather sections side by side */
-.main-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 60px;
-    gap: 50px;
+body::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+    background: rgb(0, 0, 0, 0.15);
+    backdrop-filter: blur(15px);
 }
 
-/* Fishing container */
-.fishing-container, .weather-container {
-    flex: 1;
-    background: linear-gradient(to right, rgba(135, 206, 235, 0.3), rgba(15, 72, 5, 0.4));
+.main-container{
+    border: solid;
+    width: 300px;
+    height: 496px;
+    z-index: 1;
+    background: linear-gradient(to top, rgb(0, 0, 0, 0.15), rgb(255, 255, 255, 0.15));
+    border-radius: 12px;
+    backdrop-filter: blur(100px);
     padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-    min-height: 650px;
+}
+    .regular-txt{
+    font-weight: 400;
 }
 
-/* Weather container */
-.weather-container {
-    background: linear-gradient(to right, rgba(0, 254, 186, 0.3), rgba(91, 84, 138, 0.4));
-    text-align: center;
+/*.weather-container {
+    flex: 1;
+    background: linear-gradient(
+      to right,
+      rgba(0, 254, 186, 0.3),
+      rgba(91, 84, 138, 0.4)
+    ); 
+    color: #fff;
+    border-radius: 20px;
     padding: 40px 35px;
-    color: white;
-}
-
-.fishing-container h1, .weather-container h1 {
-    color: #f0f2f2;
-    font-size: 2.5em;
-    font-weight: bold;
     text-align: center;
-    margin-bottom: 20px;
-}
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 650px;
+    padding: 20px;
+  }*/
 
-.logo-title {
+  .input-container{
+    position: relative;
+    margin-bottom: 25px;
+  }
+
+  .city-input{
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 99px;
+    border: 3px solid transparent;
+    background: egb(0, 0 ,0 0.15);
+    outline: none;
+    font-weight: 500;
+    transition: 0.25s border;
+padding-right: 45px;
+  }
+
+  .city-input:focus{
+    border: 3px solid rgb(0, 0, 0, 0.15);
+
+  }
+
+  .city-input::placeholder{
+    color: rgb(255, 255, 255, 0.7);
+  }
+
+  .search-btn{
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
-.logo-img {
-    width: 80px;
-    border-radius: 10px;
-}
-
-.outlined-text {
-    font-size: 2.5em;
-    color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
-/* Input section styling */
-.input-section {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-input,
-select,
-button {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
-button {
-    background: #0f8d04;
-    color: white;
-    font-size: x-large;
+    border: none;
     cursor: pointer;
-    border-radius: 20px;
-}
 
-button:hover {
-    background: #005bb5;
-}
+  }
 
-.delete-all {
-    background: red;
-}
-
-/* List & trip items */
-ul {
-    list-style: none;
-    padding-bottom: 20px;
-    padding-top: 20px;
-}
-
-li {
-    background: #f9f9f9;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.trip-info {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    font-size: 20px;
-}
-
-.fish-icon {
-    width: 150px;
-    height: 80px;
-    border-radius: 5px;
-    padding: auto;
-    margin-left: 30px;
-}
-
-/* Delete button styling */
-.delete-btn {
-    background: rgb(233, 229, 229);
-    color: white;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    margin-left: 20px;
-    border-color: black;
-    border-width: 2px;
-}
-
-.delete-btn:hover {
-    background: rgb(229, 8, 8);
-}
-
-#fishImageContainer {
-    margin-top: 10px;
-}
-
-/* Weather Info Styles */
-.weather-info {
+  .weather-info{
     display: flex;
     flex-direction: column;
     gap: 25px;
-}
+  }
 
-.location-date-container {
+  .location-date-container{
     border: solid;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.location{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+}
+
+.weather-summary-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.weather-summary-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.weather-summary-img {
+.weather-summary-img{
     width: 120px;
     height: 120px;
+
 }
 
-.weather-summary-info {
+.weather-summary-info{
     text-align: end;
+
 }
 
-.weather-condition-container {
+.weather-condition-container{
     display: flex;
     justify-content: space-between;
+
 }
 
-.condition-item {
+.condition-item{
     display: flex;
     align-items: center;
     gap: 6px;
+
 }
 
-.condition-item span {
+.condition-item span{
     font-size: 30px;
+
 }
 
-/* Forecast Styling */
-.forecast-items-container {
+.forecast-items-container{
     display: flex;
-    gap: 15px;
-    overflow: scroll;
-    padding-bottom: 12px;
+gap: 15px;
+overflow: scroll;
+padding-bottom: 12px;
+
 }
 
-.forecast-items-container::-webkit-scrollbar {
-    height: 8px;
+.forecast-items-container::-webkit-scrollbar{
+height: 8px;
 }
 
-.forecast-items-container::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);
+.forecast-items-container::-webkit-scrollbar-track{
+    background: rgb(0,0,0,0.1);
+    border-radius: 99px;
+
+}
+
+.forecast-items-container::-webkit-scrollbar-thumb{
+    background: rgb(0,0,0,0.1);
     border-radius: 99px;
 }
 
-.forecast-items-container::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 99px;
-}
 
-.forecast-item {
+
+.forecast-item{
     min-width: 70px;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 10px;
-    align-items: center;
-    border-radius: 12px;
-    transition: 0.3s background;
+   background: rgb(255, 255, 255, 0.1);
+   display: flex;
+   flex-direction: column;
+   gap: 6px;
+   padding: 10px;
+   align-items: center;
+   border-radius: 12px;
+   transition: 0.3s background ;
 }
 
-.forecast-item:hover {
-    background: rgba(255, 255, 255, 0.15);
+.forecast-item:hover{
+    background: rgb(255, 255, 255, 0.15);
 }
 
-.forecast-item-img {
+.forecast-item-img{
     width: 35px;
     height: 35px;
 }
 
-.section-message img {
+.section-message img{
     height: 180px;
     width: fit-content;
 }
 
-.section-message {
+.section-message{
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 15px;
     margin-top: 25%;
-}
-
-/* Headers & Text */
-h2 {
-    color: aliceblue;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
-#tripCount {
-    font-size: 25px;
-    font-family: Arial;
-    font-weight: bold;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
-p {
-    font-size: 25px;
-    font-family: Arial;
-    font-weight: bold;
-    color: #f0f2f2;
-    margin-bottom: 15px;
-    margin-top: -10px;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
-/* Responsive Design */
-@media (max-width: 900px) {
-    .main-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-
-    .fishing-container, .weather-container {
-        width: 90%;
-        min-height: auto;
-    }
 }
